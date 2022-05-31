@@ -23,10 +23,13 @@ def run_serch() :
         #     df_pivot = df.pivot_table(values='rating', index='userId', columns= 'title')
 
         # st.dataframe(df_pivot)
+    df2 = pd.read_csv('data/df2.csv')
 
     if st.button('저장하기') :
         df2 = df.append( { 'title' : choice_movie , 'userId' : 999, 'rating' : float(choice_rating) }, ignore_index=True )
         
+        df2.to_csv('data/df2.csv')
+
         st.dataframe(df2.loc[ df2['userId'] == 999 , ])
 
         st.dataframe(df2)
