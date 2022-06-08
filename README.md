@@ -54,8 +54,10 @@
 >작업해놓은 상관계수 데이터프레임에 대입해서
 >관련 순위가 높은 5개로 추려 추천하게 했습니다
 ***
+
 ## url
+http://ec2-3-39-9-192.ap-northeast-2.compute.amazonaws.com:8503/
 
 ***
 ## 데이터출처
-캐글
+[캐글](https://www.kaggle.com/)
