@@ -7,8 +7,13 @@
 * **전체 구조**
 
 1. 레이아웃
-2. 저장시스템
-3. 영화 정보들
+>```
+>from tkinter.tix import COLUMN
+>from pyparsing import empty
+>```
+>두개의 라이브러리를 사용해서 레이아웃 했습니다
+3. 저장시스템
+4. 영화 정보들
   1- 이미지 크롤링
   2- 줄거리 구글번역API
     설치 과정
