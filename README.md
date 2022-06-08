@@ -55,7 +55,7 @@
 >관련 순위가 높은 5개로 추려 추천하게 했습니다
 ***
 
-## url
+## URL
 http://ec2-3-39-9-192.ap-northeast-2.compute.amazonaws.com:8503/
 
 ***
