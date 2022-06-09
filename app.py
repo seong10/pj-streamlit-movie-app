@@ -67,15 +67,16 @@ def main() :
         # 유저의 별점 저장하는 과정
         user_rating_reset = pd.read_csv('data/user_rating_reset.csv', index_col= 0)
         user_rating = pd.read_csv('data/user_rating.csv', index_col= 0)
+        user_rating['rating'] = user_rating['rating'].astype(int)
         
         if st.button('저장하기') :
             
             if ( user_rating.loc[ user_rating['userId'] == 999 , ]['userId'].tolist() ) == [] :
-                user_rating = user_rating_reset.append( { 'title' : choice_movie , 'userId' : 999, 'rating' : float(choice_rating) }, ignore_index=True )
+                user_rating = user_rating_reset.append( { 'title' : choice_movie , 'userId' : 999, 'rating' : int(choice_rating) }, ignore_index=True )
                 user_rating.to_csv('data/user_rating.csv')
                 
             elif ( ( (user_rating.loc[ user_rating['userId'] == 999 , ])['userId'] == 999).tolist() )[0] :
-                user_rating = user_rating.append( { 'title' : choice_movie , 'userId' : 999, 'rating' : float(choice_rating) }, ignore_index=True )
+                user_rating = user_rating.append( { 'title' : choice_movie , 'userId' : 999, 'rating' : int(choice_rating) }, ignore_index=True )
                 user_rating.to_csv('data/user_rating.csv')
 
         # 저장된 데이터를 삭제하는 과정        
@@ -86,17 +87,22 @@ def main() :
                 user_rating.to_csv('data/user_rating.csv')
 
             if st.checkbox('부분 삭제하기') :
-                user_title = list(enumerate(user_rating['title'].values))
-                user_title_select = st.selectbox('삭제할 영화 선택', user_title)
-                if st.button('삭제') :
-                    user_rating = user_rating.drop(index= user_title_select[0]
-                    , axis=0)
-                    user_rating.to_csv('data/user_rating.csv')
+                if list(user_rating['userId']) == [] :
+                    st.markdown('삭제할 데이터가 없습니다')
+                else :
+                    user_title = list(enumerate(user_rating['title'].values))
+                    user_title_select = st.selectbox('삭제할 영화 선택', user_title)
+                    if st.button('삭제') :
+                        user_rating = user_rating.drop(index= user_title_select[0]
+                        , axis=0)
+                        user_rating = user_rating.reset_index(drop= True)
+                        user_rating.to_csv('data/user_rating.csv')
 
     with con6 :
         st.title('')
         st.subheader('나의 영화들')
-        st.dataframe(user_rating)
+
+        st.dataframe(user_rating[['title', 'rating']])
 
         st.title('')
         if st.button('내가 본 영화들의 추천 영화 보기') :
