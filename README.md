@@ -1,7 +1,7 @@
 # 영화 추천 웹 대시보드
 
 ### 이 앱은 영화를 선택하면 정보가 나오고,
-### 선택한 영화에에 유저가 별점을 매길 수 있으며
+### 선택한 영화에 유저가 별점을 매겨서 저장할수 있으며
 ### 유저의 별점을 토대로 영화 추천을 해줍니다
 ***
 ## 전체 구조
@@ -27,9 +27,9 @@
 
 * 줄거리 / 구글번역API 사용
 >* 설치 과정
->'''
+>```
 >pip install googletrans==4.0.0-rc1
->'''
+>```
 >위에 코드로 아나콘다 프롬프트에 설치를 합니다
 >
 >* 버전을 선택하는 이유는,
@@ -55,9 +55,9 @@
 >관련 순위가 높은 5개로 추려 추천하게 했습니다
 ***
 
-## url
+## URL
 http://ec2-3-39-9-192.ap-northeast-2.compute.amazonaws.com:8503/
 
 ***
 ## 데이터출처
-[캐글](https://www.kaggle.com/)
+https://www.kaggle.com/datasets/rounakbanik/the-movies-dataset?select=movies_metadata.csv
