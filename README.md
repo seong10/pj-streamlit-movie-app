@@ -60,4 +60,4 @@ http://ec2-3-39-9-192.ap-northeast-2.compute.amazonaws.com:8503/
 
 ***
 ## 데이터출처
-[캐글](https://www.kaggle.com/)
+https://www.kaggle.com/datasets/rounakbanik/the-movies-dataset?select=movies_metadata.csv
